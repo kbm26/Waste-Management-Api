@@ -105,11 +105,3 @@ curl -X POST -H "Content-Type: application/json" \
 -d '{"name": "Reuse paper", "description": "Reuse old newspapers for cleaning windows."}' \
 http://localhost:8080/api/recycling-tips
 ```
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Let me know if you'd like any other updates!

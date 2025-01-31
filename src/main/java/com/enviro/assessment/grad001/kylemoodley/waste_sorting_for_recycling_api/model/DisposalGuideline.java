@@ -3,32 +3,26 @@ package com.enviro.assessment.grad001.kylemoodley.waste_sorting_for_recycling_ap
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "DisposalGuidelines")
+@Table(name = "disposal_guidelines")
 public class DisposalGuideline {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "DisposalGuidelineId")
+    @Column(name = "disposal_guideline_id")
     private Integer disposalGuidelineId;
 
     @ManyToOne
-    @JoinColumn(name = "WasteCategoryId", nullable = false)
+    @JoinColumn(name = "waste_category_id", nullable = false)
     private WasteCategory wasteCategory;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "Description", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
-
-    // Getters and Setters
 
     public Integer getDisposalGuidelineId() {
         return disposalGuidelineId;
-    }
-
-    public void setDisposalGuidelineId(Integer disposalGuidelineId) {
-        this.disposalGuidelineId = disposalGuidelineId;
     }
 
     public WasteCategory getWasteCategory() {

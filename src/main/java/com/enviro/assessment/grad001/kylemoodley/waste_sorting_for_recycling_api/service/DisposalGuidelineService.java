@@ -21,7 +21,6 @@ public class DisposalGuidelineService {
     @Autowired
     private WasteCategoryRepository wasteCategoryRepository;
 
-    // Create a new DisposalGuideline
     public DisposalGuidelineDTO createDisposalGuideline(DisposalGuidelineDTO disposalGuidelineDTO) {
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(disposalGuidelineDTO.getWasteCategoryId());
         if (wasteCategoryOpt.isPresent()) {
@@ -37,7 +36,6 @@ public class DisposalGuidelineService {
         return null;
     }
 
-    // Get all DisposalGuidelines
     public List<DisposalGuidelineDTO> getAllDisposalGuidelines() {
         List<DisposalGuideline> disposalGuidelines = disposalGuidelineRepository.findAll();
         return disposalGuidelines.stream()
@@ -45,13 +43,11 @@ public class DisposalGuidelineService {
                 .collect(Collectors.toList());
     }
 
-    // Get DisposalGuideline by ID
     public DisposalGuidelineDTO getDisposalGuidelineById(Integer id) {
         Optional<DisposalGuideline> disposalGuidelineOpt = disposalGuidelineRepository.findById(id);
         return disposalGuidelineOpt.map(this::convertToDTO).orElse(null);
     }
 
-    // Update a DisposalGuideline
     public DisposalGuidelineDTO updateDisposalGuideline(Integer id, DisposalGuidelineDTO disposalGuidelineDTO) {
         Optional<DisposalGuideline> disposalGuidelineOpt = disposalGuidelineRepository.findById(id);
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(disposalGuidelineDTO.getWasteCategoryId());
@@ -68,7 +64,6 @@ public class DisposalGuidelineService {
         return null;
     }
 
-    // Delete a DisposalGuideline
     public boolean deleteDisposalGuideline(Integer id) {
         Optional<DisposalGuideline> disposalGuidelineOpt = disposalGuidelineRepository.findById(id);
         if (disposalGuidelineOpt.isPresent()) {
@@ -78,7 +73,6 @@ public class DisposalGuidelineService {
         return false;
     }
 
-    // Convert model to DTO
     private DisposalGuidelineDTO convertToDTO(DisposalGuideline disposalGuideline) {
         DisposalGuidelineDTO disposalGuidelineDTO = new DisposalGuidelineDTO();
         disposalGuidelineDTO.setDisposalGuidelineId(disposalGuideline.getDisposalGuidelineId());

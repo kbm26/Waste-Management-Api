@@ -5,34 +5,22 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "WasteCategories")
+@Table(name = "waste_categories")
 public class WasteCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "WasteCategoryId")
+    @Column(name = "waste_category_id")
     private Integer wasteCategoryId;
 
-    @Column(name = "Name", nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "Description", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
-
-    @OneToMany(mappedBy = "wasteCategory", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DisposalGuideline> disposalGuidelines;
-
-    @OneToMany(mappedBy = "wasteCategory", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RecyclingTip> recyclingTips;
-
-    // Getters and Setters
 
     public Integer getWasteCategoryId() {
         return wasteCategoryId;
-    }
-
-    public void setWasteCategoryId(Integer wasteCategoryId) {
-        this.wasteCategoryId = wasteCategoryId;
     }
 
     public String getName() {
@@ -51,19 +39,4 @@ public class WasteCategory {
         this.description = description;
     }
 
-    public List<DisposalGuideline> getDisposalGuidelines() {
-        return disposalGuidelines;
-    }
-
-    public void setDisposalGuidelines(List<DisposalGuideline> disposalGuidelines) {
-        this.disposalGuidelines = disposalGuidelines;
-    }
-
-    public List<RecyclingTip> getRecyclingTips() {
-        return recyclingTips;
-    }
-
-    public void setRecyclingTips(List<RecyclingTip> recyclingTips) {
-        this.recyclingTips = recyclingTips;
-    }
 }

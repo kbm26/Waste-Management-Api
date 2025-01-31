@@ -16,7 +16,6 @@ public class WasteCategoryService {
     @Autowired
     private WasteCategoryRepository wasteCategoryRepository;
 
-    // Create a new WasteCategory
     public WasteCategoryDTO createWasteCategory(WasteCategoryDTO wasteCategoryDTO) {
         WasteCategory wasteCategory = new WasteCategory();
         wasteCategory.setName(wasteCategoryDTO.getName());
@@ -26,7 +25,6 @@ public class WasteCategoryService {
         return convertToDTO(savedWasteCategory);
     }
 
-    // Get all WasteCategories
     public List<WasteCategoryDTO> getAllWasteCategories() {
         List<WasteCategory> wasteCategories = wasteCategoryRepository.findAll();
         return wasteCategories.stream()
@@ -34,13 +32,11 @@ public class WasteCategoryService {
                 .collect(Collectors.toList());
     }
 
-    // Get WasteCategory by ID
     public WasteCategoryDTO getWasteCategoryById(Integer id) {
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(id);
         return wasteCategoryOpt.map(this::convertToDTO).orElse(null);
     }
 
-    // Update a WasteCategory
     public WasteCategoryDTO updateWasteCategory(Integer id, WasteCategoryDTO wasteCategoryDTO) {
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(id);
         if (wasteCategoryOpt.isPresent()) {
@@ -54,7 +50,6 @@ public class WasteCategoryService {
         return null;
     }
 
-    // Delete a WasteCategory
     public boolean deleteWasteCategory(Integer id) {
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(id);
         if (wasteCategoryOpt.isPresent()) {
@@ -64,7 +59,6 @@ public class WasteCategoryService {
         return false;
     }
 
-    // Convert model to DTO
     private WasteCategoryDTO convertToDTO(WasteCategory wasteCategory) {
         WasteCategoryDTO wasteCategoryDTO = new WasteCategoryDTO();
         wasteCategoryDTO.setWasteCategoryId(wasteCategory.getWasteCategoryId());

@@ -1,0 +1,22 @@
+Table waste_categories {
+  waste_category_id int [pk, increment]
+  name varchar(100) [not null, unique]
+  description varchar(255) [not null]
+}
+
+Table disposal_guidelines {
+  disposal_guideline_id int [pk, increment]
+  waste_category_id int [not null]
+  name varchar(100) [not null]
+  description varchar(255) [not null]
+}
+
+Table recycling_tips {
+  recycling_tip_id int [pk, increment]
+  waste_category_id int [not null]
+  name varchar(100) [not null]
+  description varchar(255) [not null]
+}
+
+Ref: disposal_guidelines.waste_category_id > waste_categories.waste_category_id
+Ref: recycling_tips.waste_category_id > waste_categories.waste_category_id

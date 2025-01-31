@@ -3,11 +3,9 @@ package com.enviro.assessment.grad001.kylemoodley.waste_sorting_for_recycling_ap
 public class DisposalGuidelineDTO {
 
     private Integer disposalGuidelineId;
-    private Integer wasteCategoryId; // Reference to WasteCategory
+    private Integer wasteCategoryId;
     private String name;
     private String description;
-
-    // Getters and Setters
 
     public Integer getDisposalGuidelineId() {
         return disposalGuidelineId;

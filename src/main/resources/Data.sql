@@ -1,11 +1,11 @@
-INSERT INTO WasteCategories (Description, Name) VALUES
+INSERT INTO waste_categories (description, name) VALUES
 ('Items made of plastic like bottles, bags, and containers', 'Plastic'),
 ('Glass materials like bottles and jars', 'Glass'),
 ('Paper products like newspapers, magazines, and cardboard', 'Paper'),
 ('Metal items such as cans and aluminum foil', 'Metal'),
 ('Biodegradable waste like food scraps and garden waste', 'Organic');
 
-INSERT INTO DisposalGuidelines (WasteCategoryId, Description, Name) VALUES
+INSERT INTO disposal_guidelines (waste_category_id, description, name) VALUES
 (1, 'Place plastic waste in the blue recycling bin.', 'Plastic Disposal'),
 (2, 'Glass should be placed in the green recycling bin.', 'Glass Disposal'),
 (3, 'Paper waste should go into the yellow recycling bin.', 'General Paper Disposal'),
@@ -15,7 +15,7 @@ INSERT INTO DisposalGuidelines (WasteCategoryId, Description, Name) VALUES
 (4, 'Rusty metal items should be kept separate to avoid contamination.', 'Rusty Metal Disposal'),
 (5, 'Organic waste can be composted at home or sent to a composting facility.', 'Organic Disposal');
 
-INSERT INTO RecyclingTips (WasteCategoryId, Description, Name) VALUES
+INSERT INTO recycling_tips (waste_category_id, description, name) VALUES
 (1, 'Rinse plastic containers before recycling to avoid contamination.', 'Plastic Recycling Tip'),
 (2, 'Remove lids from glass bottles before placing them in the recycling bin.', 'Glass Recycling Tip'),
 (3, 'Flatten cardboard boxes to save space in recycling bins.', 'Paper Recycling Tip - Flattening'),

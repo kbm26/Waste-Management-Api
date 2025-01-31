@@ -48,7 +48,6 @@ public class RecyclingTipService {
         return recyclingTipOpt.map(this::convertToDTO).orElse(null);
     }
 
-    // Update a RecyclingTip
     public RecyclingTipDTO updateRecyclingTip(Integer id, RecyclingTipDTO recyclingTipDTO) {
         Optional<RecyclingTip> recyclingTipOpt = recyclingTipRepository.findById(id);
         Optional<WasteCategory> wasteCategoryOpt = wasteCategoryRepository.findById(recyclingTipDTO.getWasteCategoryId());
@@ -65,7 +64,6 @@ public class RecyclingTipService {
         return null;
     }
 
-    // Delete a RecyclingTip
     public boolean deleteRecyclingTip(Integer id) {
         Optional<RecyclingTip> recyclingTipOpt = recyclingTipRepository.findById(id);
         if (recyclingTipOpt.isPresent()) {
@@ -75,7 +73,6 @@ public class RecyclingTipService {
         return false;
     }
 
-    // Convert model to DTO
     private RecyclingTipDTO convertToDTO(RecyclingTip recyclingTip) {
         RecyclingTipDTO recyclingTipDTO = new RecyclingTipDTO();
         recyclingTipDTO.setRecyclingTipId(recyclingTip.getRecyclingTipId());

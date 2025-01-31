@@ -16,21 +16,18 @@ public class RecyclingTipController {
     @Autowired
     private RecyclingTipService recyclingTipService;
 
-    // Create a new RecyclingTip
     @PostMapping
     public ResponseEntity<RecyclingTipDTO> createRecyclingTip(@RequestBody RecyclingTipDTO recyclingTipDTO) {
         RecyclingTipDTO createdRecyclingTip = recyclingTipService.createRecyclingTip(recyclingTipDTO);
         return new ResponseEntity<>(createdRecyclingTip, HttpStatus.CREATED);
     }
 
-    // Get all RecyclingTips
     @GetMapping
     public ResponseEntity<List<RecyclingTipDTO>> getAllRecyclingTips() {
         List<RecyclingTipDTO> recyclingTips = recyclingTipService.getAllRecyclingTips();
         return new ResponseEntity<>(recyclingTips, HttpStatus.OK);
     }
 
-    // Get a specific RecyclingTip by ID
     @GetMapping("/{id}")
     public ResponseEntity<RecyclingTipDTO> getRecyclingTipById(@PathVariable Integer id) {
         RecyclingTipDTO recyclingTipDTO = recyclingTipService.getRecyclingTipById(id);
@@ -39,7 +36,6 @@ public class RecyclingTipController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Update a RecyclingTip
     @PutMapping("/{id}")
     public ResponseEntity<RecyclingTipDTO> updateRecyclingTip(@PathVariable Integer id, @RequestBody RecyclingTipDTO recyclingTipDTO) {
         RecyclingTipDTO updatedRecyclingTip = recyclingTipService.updateRecyclingTip(id, recyclingTipDTO);
@@ -48,7 +44,6 @@ public class RecyclingTipController {
                 new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    // Delete a RecyclingTip
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRecyclingTip(@PathVariable Integer id) {
         boolean deleted = recyclingTipService.deleteRecyclingTip(id);

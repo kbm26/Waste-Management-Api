@@ -3,11 +3,9 @@ package com.enviro.assessment.grad001.kylemoodley.waste_sorting_for_recycling_ap
 public class RecyclingTipDTO {
 
     private Integer recyclingTipId;
-    private Integer wasteCategoryId; // Reference to WasteCategory
+    private Integer wasteCategoryId;
     private String name;
     private String description;
-
-    // Getters and Setters
 
     public Integer getRecyclingTipId() {
         return recyclingTipId;
